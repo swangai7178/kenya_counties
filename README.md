@@ -11,29 +11,42 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Flutter package that provides a county picker for selecting Kenyan counties in your app.
+.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+  - County Picker
+  - Customizable UI
+  - Support for All Kenyan Counties
+  - Easy Integration
+  - Cross-Platform Support
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+### Prerequisites
 
+Before you begin, ensure you have met the following requirements:
+- Flutter SDK installed on your machine. See [official Flutter installation guide](https://flutter.dev/docs/get-started/install) for instructions.
+
+import 'package:kenya_counties/kenya_counties.dart';
+
+### Installation
+
+To use this package, add `kenya_counties` as a dependency in your `pubspec.yaml` file.
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+
 
 ```dart
-const like = 'sample';
+CountySearchField(
+    onCountySelected: (selectedCounty) {
+    setState(() {
+    id = selectedCounty['index'].toString();
+    name = selectedCounty['name'];
+    });
+        },
+),
 ```
 
-## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
