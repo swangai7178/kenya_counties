@@ -1,6 +1,6 @@
 name: kenya_counties
 description: "A Flutter package that displays a county picker for selecting Kenyan counties in your app."
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/swangai7178/kenya_counties
 
 environment:

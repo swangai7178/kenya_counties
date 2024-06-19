@@ -14,8 +14,6 @@ class _CountySearchFieldState extends State<CountySearchField> {
   final List<Map<String, dynamic>> _filteredCounties = counties;
   Map<String, dynamic>? _selectedCounty;
 
- 
-
   void _showCountyPicker(BuildContext context) {
     showDialog(
       context: context,
