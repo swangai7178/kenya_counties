@@ -48,10 +48,9 @@ class _CountySearchFieldState extends State<CountySearchField> {
                         setState(() {
                           _filteredCounties.clear();
                           _filteredCounties.addAll(
-                            counties.where((county) =>
-                                county['name']
-                                    .toLowerCase()
-                                    .contains(value.toLowerCase())),
+                            counties.where((county) => county['name']
+                                .toLowerCase()
+                                .contains(value.toLowerCase())),
                           );
                         });
                       },
