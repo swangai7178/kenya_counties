@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kenya_counties/kenya_counties.dart';
 
+/// A widget that provides a searchable dropdown for selecting a county in Kenya.
+///
+/// Displays a text field that allows users to type and filter from a list of Kenyan counties.
+/// The selected county is returned via a callback.
 class CountySearchField extends StatefulWidget {
   final void Function(Map<String, dynamic> selectedCounty)? onCountySelected;
 

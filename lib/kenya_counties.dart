@@ -1,3 +1,4 @@
+/// A Flutter package that provides a customizable widget for selecting counties in Kenya.
 library kenya_counties;
 
 import 'package:flutter/material.dart';
