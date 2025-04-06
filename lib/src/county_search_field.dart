@@ -21,31 +21,68 @@ class _CountySearchFieldState extends State<CountySearchField> {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
             return AlertDialog(
-              title: const Text('Select a County'),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(height: 8),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: _filteredCounties.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(_filteredCounties[index]['name']),
-                          onTap: () {
-                            setState(() {
-                              _selectedCounty = _filteredCounties[index];
-                            });
-                            Navigator.of(context).pop();
-                            if (widget.onCountySelected != null) {
-                              widget.onCountySelected!(_selectedCounty!);
-                            }
-                          },
-                        );
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              title: const Text(
+                'Select a County',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              content: SizedBox(
+                height: 400,
+                child: Column(
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search County',
+                        prefixIcon: const Icon(Icons.search),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          _filteredCounties.clear();
+                          _filteredCounties.addAll(
+                            counties.where((county) =>
+                                county['name']
+                                    .toLowerCase()
+                                    .contains(value.toLowerCase())),
+                          );
+                        });
                       },
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 16),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: _filteredCounties.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            margin: const EdgeInsets.symmetric(vertical: 4),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: ListTile(
+                              title: Text(
+                                _filteredCounties[index]['name'],
+                                style: const TextStyle(fontSize: 16),
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  _selectedCounty = _filteredCounties[index];
+                                });
+                                Navigator.of(context).pop();
+                                if (widget.onCountySelected != null) {
+                                  widget.onCountySelected!(_selectedCounty!);
+                                }
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           },
